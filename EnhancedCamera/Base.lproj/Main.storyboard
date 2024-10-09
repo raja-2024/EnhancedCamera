@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EnhancedCamera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-IA-AzY" customClass="BOScanView" customModule="EnhancedCamera" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRf-R1-QiA">
+                                        <rect key="frame" x="161.66666666666666" y="673" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oRf-R1-QiA" secondAttribute="height" multiplier="1:1" id="aGw-EY-4GO"/>
+                                            <constraint firstAttribute="width" constant="70" id="uWA-6i-Utd"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="camera.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="captureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4P4-ie-iT6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-GV-Lz9">
+                                        <rect key="frame" x="332" y="685.66666666666663" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="4IR-Ed-omb"/>
+                                            <constraint firstAttribute="width" secondItem="Goj-GV-Lz9" secondAttribute="height" multiplier="1:1" id="SdN-Os-mBu"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="flashlight.off.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="flashAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pCL-o5-Tz1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="oRf-R1-QiA" secondAttribute="bottom" constant="16" id="Ar3-2b-DYa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Goj-GV-Lz9" secondAttribute="trailing" constant="16" id="gzu-jG-Adt"/>
+                                    <constraint firstItem="Goj-GV-Lz9" firstAttribute="centerY" secondItem="oRf-R1-QiA" secondAttribute="centerY" id="hOk-bn-MXL"/>
+                                    <constraint firstItem="oRf-R1-QiA" firstAttribute="centerX" secondItem="4HO-IA-AzY" secondAttribute="centerX" id="lKd-tV-xry"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4HO-IA-AzY" secondAttribute="trailing" id="7NM-aY-xdF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4HO-IA-AzY" secondAttribute="bottom" id="bS2-mQ-UiY"/>
+                            <constraint firstItem="4HO-IA-AzY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sHW-7H-aBu"/>
+                            <constraint firstItem="4HO-IA-AzY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zix-pc-jnf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="4HO-IA-AzY" id="pyW-iO-6ca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="4"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="flashlight.off.fill" catalog="system" width="72" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
