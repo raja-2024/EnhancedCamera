@@ -30,6 +30,8 @@ protocol BOCameraObject: NSObject {
     init(with cameraPostion: BOCameraPostion, setting: BOCameraSetting)
     var delegate: BOCameraOutputDelegate? { get set }
     var currentCameraType: AVCaptureDevice.DeviceType? { get }
+    /// To set bias value which make image darker to lighter. Value should between -8 to 8.
+    func setExposure(targetBias: Double)
 }
 
 public struct BOCameraSetting {

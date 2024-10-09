@@ -148,6 +148,21 @@ extension BOCamera {
     var currentCameraType: AVCaptureDevice.DeviceType? {
         device?.deviceType
     }
+    
+    /// To set bias value which make image darker to lighter. Value should between -8 to 8.
+    func setExposure(targetBias: Double) {
+        guard let device = device else{ return}
+        do {
+            try device.lockForConfiguration()
+            let bias = min(max(device.minExposureTargetBias, Float(targetBias)),
+                           device.maxExposureTargetBias)
+            device.setExposureTargetBias(bias, completionHandler: nil)
+            device.unlockForConfiguration()
+        } catch let err {
+            delegate?.failed(error: err)
+        }
+    }
+    
 }
 
 // MARK: Auto
@@ -264,11 +279,4 @@ extension BOCamera {
         }
     }
 
-    /// To set bias value which make image darker to lighter. Value should between -8 to 8.
-    private func setExposure(targetBias: Double) {
-        guard let device = device else{ return}
-        let bias = min(max(device.minExposureTargetBias, Float(targetBias)),
-                       device.maxExposureTargetBias)
-        device.setExposureTargetBias(bias, completionHandler: nil)
-    }
 }

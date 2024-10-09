@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="03F-Nq-Sua">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,39 +18,96 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-IA-AzY" customClass="BOScanView" customModule="EnhancedCamera" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRf-R1-QiA">
-                                        <rect key="frame" x="161.66666666666666" y="673" width="70" height="70"/>
+                                        <rect key="frame" x="161.66666666666666" y="629" width="70" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="oRf-R1-QiA" secondAttribute="height" multiplier="1:1" id="aGw-EY-4GO"/>
                                             <constraint firstAttribute="width" constant="70" id="uWA-6i-Utd"/>
                                         </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="camera.fill" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="captureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4P4-ie-iT6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-GV-Lz9">
-                                        <rect key="frame" x="332" y="685.66666666666663" width="45" height="45"/>
+                                        <rect key="frame" x="332" y="641.66666666666663" width="45" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="4IR-Ed-omb"/>
                                             <constraint firstAttribute="width" secondItem="Goj-GV-Lz9" secondAttribute="height" multiplier="1:1" id="SdN-Os-mBu"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="flashlight.off.fill" catalog="system"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="flashlight.off.fill" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <real key="value" value="22.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="flashAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pCL-o5-Tz1"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibb-TM-YpZ">
+                                        <rect key="frame" x="16" y="646.66666666666663" width="100" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="sZC-3d-oui"/>
+                                            <constraint firstAttribute="width" constant="100" id="uz9-uV-MTb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Normal"/>
+                                        <connections>
+                                            <action selector="advancedAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBx-1u-mL2"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="abD-Wr-8r8">
+                                        <rect key="frame" x="16" y="511" width="361" height="70"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-8" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="oEd-bg-SR9">
+                                                <rect key="frame" x="-2" y="0.0" width="365" height="28"/>
+                                                <connections>
+                                                    <action selector="setCustomExposure:" destination="BYZ-38-t0r" eventType="valueChanged" id="ALI-D3-b5Z"/>
+                                                </connections>
+                                            </slider>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSC-0W-Taq">
+                                                <rect key="frame" x="0.0" y="43" width="361" height="27"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0w8-1E-Myp">
+                                                        <rect key="frame" x="106" y="-4" width="149" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Custom Expsure"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Rp8-xf-cdK"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="ibb-TM-YpZ" firstAttribute="leading" secondItem="4HO-IA-AzY" secondAttribute="leading" constant="16" id="8QR-dN-T2G"/>
                                     <constraint firstAttribute="bottom" secondItem="oRf-R1-QiA" secondAttribute="bottom" constant="16" id="Ar3-2b-DYa"/>
+                                    <constraint firstAttribute="trailing" secondItem="abD-Wr-8r8" secondAttribute="trailing" constant="16" id="Fr3-Rh-YWe"/>
+                                    <constraint firstItem="ibb-TM-YpZ" firstAttribute="centerY" secondItem="oRf-R1-QiA" secondAttribute="centerY" id="NEz-GL-XRG"/>
+                                    <constraint firstItem="oRf-R1-QiA" firstAttribute="top" secondItem="abD-Wr-8r8" secondAttribute="bottom" constant="48" id="QGU-xV-d4I"/>
                                     <constraint firstAttribute="trailing" secondItem="Goj-GV-Lz9" secondAttribute="trailing" constant="16" id="gzu-jG-Adt"/>
                                     <constraint firstItem="Goj-GV-Lz9" firstAttribute="centerY" secondItem="oRf-R1-QiA" secondAttribute="centerY" id="hOk-bn-MXL"/>
                                     <constraint firstItem="oRf-R1-QiA" firstAttribute="centerX" secondItem="4HO-IA-AzY" secondAttribute="centerX" id="lKd-tV-xry"/>
+                                    <constraint firstItem="abD-Wr-8r8" firstAttribute="leading" secondItem="4HO-IA-AzY" secondAttribute="leading" constant="16" id="xBy-Zh-xk9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -63,13 +120,62 @@
                             <constraint firstItem="4HO-IA-AzY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zix-pc-jnf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="lfU-yj-B4C"/>
                     <connections>
+                        <outlet property="advancedlayout" destination="abD-Wr-8r8" id="Idy-oc-vdx"/>
                         <outlet property="cameraView" destination="4HO-IA-AzY" id="pyW-iO-6ca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="4"/>
+            <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
+        </scene>
+        <!--Image Review Controller-->
+        <scene sceneID="DNd-d1-ufJ">
+            <objects>
+                <viewController storyboardIdentifier="ImageReviewController" id="ExL-Bx-0p2" customClass="ImageReviewController" customModule="EnhancedCamera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6TG-OJ-88D">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dDH-uB-93n">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="caR-cA-LfJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="caR-cA-LfJ" firstAttribute="trailing" secondItem="dDH-uB-93n" secondAttribute="trailing" id="0dM-Un-TjH"/>
+                            <constraint firstItem="dDH-uB-93n" firstAttribute="top" secondItem="caR-cA-LfJ" secondAttribute="top" id="7zO-rl-lYg"/>
+                            <constraint firstItem="dDH-uB-93n" firstAttribute="leading" secondItem="caR-cA-LfJ" secondAttribute="leading" id="VEv-58-VQS"/>
+                            <constraint firstItem="caR-cA-LfJ" firstAttribute="bottom" secondItem="dDH-uB-93n" secondAttribute="bottom" id="oqF-Gv-hla"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="reviewImgView" destination="dDH-uB-93n" id="ORg-VL-mt3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mb5-gF-XFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834.3511450381679" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RRC-W4-hWL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="03F-Nq-Sua" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="or8-9M-Kc4">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BFW-AU-fqN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Uj-bf-UP8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
